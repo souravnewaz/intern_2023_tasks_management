@@ -20,8 +20,6 @@ class RegisterController extends Controller
         $input = $request->validate([
             'name' => 'required|string|max:100',
             'email' => 'required|email|unique:users,email',
-            'phone' => 'required|string|min:7|max:15',
-            'image' => 'required|image|mimes:jpg,png,jpeg',
             'password' => 'required|min:6|confirmed',
         ]);
 
@@ -33,6 +31,6 @@ class RegisterController extends Controller
 
         Session::flash('success', 'Register Successfully');
 
-        return redirect()->route('home');
+        return redirect('/tasks');
     }
 }
